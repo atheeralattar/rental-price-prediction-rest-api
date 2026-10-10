@@ -4,7 +4,10 @@
   // Pin Python 3.12 so the pinned requirements install and the model loads.
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      // Moby packages are not available for this image's Debian release; use Docker CE instead
+      "moby": false
+    }
   },
   "forwardPorts": [7860, 8501],
   "postCreateCommand": "pip install -r backend/requirements.txt -r frontend/requirements.txt"
