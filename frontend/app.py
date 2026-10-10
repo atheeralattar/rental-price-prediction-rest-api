@@ -1,9 +1,12 @@
+import os
+
 import streamlit as st
 import pandas as pd
 import requests
 
 # Base URL of the Flask backend
-BACKEND_URL = "http://backend:7860"
+# docker-compose sets BACKEND_URL=http://backend:7860; running both apps directly (e.g. in Codespaces) uses localhost
+BACKEND_URL = os.environ.get("BACKEND_URL", "http://localhost:7860")
 
 # Set the title of the Streamlit app
 st.title("Airbnb Rental Price Prediction")

@@ -1,0 +1,11 @@
+{
+  "name": "Rental Price Prediction",
+  // The model was saved with scikit-learn 1.6.1, which has no wheels for Python 3.13+.
+  // Pin Python 3.12 so the pinned requirements install and the model loads.
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "forwardPorts": [7860, 8501],
+  "postCreateCommand": "pip install -r backend/requirements.txt -r frontend/requirements.txt"
+}

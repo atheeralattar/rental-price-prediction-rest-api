@@ -89,5 +89,6 @@ def predict_rental_price_batch():
     return output_dict
 
 # Run the Flask application in debug mode if this script is executed directly
+# Port 7860 matches the Docker setup, so the frontend finds the backend either way
 if __name__ == '__main__':
-    rental_price_predictor_api.run(debug=True)
+    rental_price_predictor_api.run(host='0.0.0.0', port=7860, debug=True)
